@@ -7,13 +7,15 @@ def substrings(user_string, dictionary)
 		dictionary.each do |word|
 			puts "Searching with #{word}"
 			if word_to_search.include?(word)
-				puts "Match!"
-				x = ans[word].to_i
-				x += 1
-				ans[word] = x
+				if ans.has_key?(word)
+					ans[word] += 1
+				else
+					ans[word] = 1
+				end
 			end
 		end
 	end
+	return ans
 end
 
 
